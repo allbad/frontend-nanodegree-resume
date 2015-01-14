@@ -1,7 +1,7 @@
 * {
   padding:0;
   margin:0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Mallanna', sans-serif;
 }
 
 .clearfix {
@@ -15,15 +15,16 @@
 
 h1 {
   font-size: 40px;
-  color: #F5A623;
+  color: #9ca2c4;
   line-height: 48px;
   display: inline;
+  font-family: 'Gruppo', cursive;
 }
 
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999999;
+  color: #292929;
   line-height: 29px;
   padding: 10px;
 }
@@ -52,7 +53,7 @@ h2, h3, h4, h5 {
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #999999;
+  color: #292929;
   line-height: 16px;
   float: left;
 }
@@ -60,7 +61,7 @@ h2, h3, h4, h5 {
 .location-text {
   font-style: italic;
   font-size: 14px;
-  color: #999999;
+  color: #292929;
   line-height: 16px;
   float: right;
 
@@ -82,8 +83,7 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #F3F3F3;
-  line-height: 28px;
+  color: #e1e1e1;
 }
 
 #skillsH3 {
@@ -100,12 +100,11 @@ a {
 }
 
 .white-text {
-  font-weight: bold;
-  color: #FFFFFF;
+  color: #e1e1e1;
 }
 
 .gray {
-  background-color: #F3F3F3;
+  background-color: #e1e1e1;
   padding-bottom: 10px;
   clear:both;
 }
@@ -116,7 +115,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #4a6084;
 }
 
 .flex-box {
@@ -163,7 +162,8 @@ img {
 }
 
 span {
-  padding: 5px;
+  padding: 10px;
+  color: #e1e1e1;
 }
 
 #letsConnect {

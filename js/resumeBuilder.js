@@ -4,14 +4,16 @@ var bio = {
     "contacts": {
         "mobile": "07767 374488",
         "email": "neil_allgood@hotmail.com",
-        "github": "allbad",
-        "location": "London"
+        "twitter": "http://twitter.com/neilallgood",
+        "github": "https://github.com/allbad",
+
+        "location": "Hackney, London"
     },
-    "welcomeMessage": "Hello",
+    "welcomeMessage": "Technical manager with experience of running infrastructure and development teams in agile environments.  Working towards a Front-end Web Developer nanoDegree qualification with Udacity",
     "skills": [
         "HTML",
         "CSS",
-        "JavaScript"
+        "JavaScript/jQuery"
     ],
     "bioPic": "images/neil.jpg"
 }
@@ -23,10 +25,16 @@ var formattedName = HTMLheaderName.replace("%data%", bio.name);
 $("#header").prepend(formattedName);
 
 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-$("#header").append(formattedMobile);
+$("#topContacts").append(formattedMobile);
 
 var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-$("#header").append(formattedEmail);
+$("#topContacts").append(formattedEmail);
+
+var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+$("#topContacts").append(formattedTwitter);
+
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+$("#topContacts").append(formattedGithub);
 
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 $("#header").append(formattedBioPic);
@@ -89,12 +97,12 @@ var education = {
 		{
 			"name": "Howard Grammar",
 			"dates": "1980-1986",
-			"city": "Rainham",
+			"location": "Rainham, Gillingham, Kent",
 		},
 		{
 			"name": "St Margarets",
 			"dates": "1974-1980",
-			"city": "Rainham",
+			"location": "Rainham, Gillingham, Kent",
 		}
 	],	
 	"onlineCourses": [
@@ -121,7 +129,7 @@ education.display = function(){
         $(".education-entry:last").append(formattedName);
         var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
         $(".education-entry:last").append(formattedDates);      
-        var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].city);  
+        var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);  
         $(".education-entry:last").append(formattedLocation);
     }
 }
