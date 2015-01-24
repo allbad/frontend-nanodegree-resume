@@ -1,24 +1,26 @@
 * {
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   font-family: 'Mallanna', sans-serif;
+  max-width: 1024px;
+  margin: auto;
 }
 
 .clearfix {
   overflow: auto;
 }
 
-.education-entry, .work-entry, .project-entry {
+.education-entry,
+.work-entry,
+.project-entry {
   padding-left: 5%;
   padding-right: 5%;
 }
 
 h1 {
-  font-size: 40px;
-  color: #9ca2c4;
-  line-height: 48px;
+  font: 40px/48px 'Gruppo', cursive;
+  color: #d1d4dd;
   display: inline;
-  font-family: 'Gruppo', cursive;
 }
 
 h2 {
@@ -32,23 +34,29 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000000;
+  color: #000;
   line-height: 22px;
 }
 
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   line-height: 17px;
 }
 
-h2, h3, h4, h5 {
-  padding:10px;
+h2,
+h3,
+h4,
+h5 {
+  padding: 10px;
   padding-left: 5%;
   padding-right: 5%;
 }
 
+.icon {
+  margin-bottom: -22px;
+}
 
 .date-text {
   font-style: italic;
@@ -64,17 +72,17 @@ h2, h3, h4, h5 {
   color: #292929;
   line-height: 16px;
   float: right;
-
 }
 
 p {
   font-size: 14px;
-  color: #333333;
+  color: #333;
   line-height: 21px;
 }
 
 a {
-  color: #1199C3;
+  color: #f5ae23;
+  /* color: #1199c3; */
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -83,39 +91,46 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #e1e1e1;
+  color: #f3f3f3;
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  color: #f5ae23;
   display: none;
 }
 
-.orange {
-  background-color: #F5AE23;
+.subhead-bar {
+  background: #9ca2c4;
 }
 
 .orange-text {
-  color: #F5AE23;
+  color: #f5ae23;
 }
 
-.white-text {
-  color: #e1e1e1;
+.light-text {
+  color: #f3f3f3;
 }
 
 .gray {
-  background-color: #e1e1e1;
+  background: #e1e1e1;
   padding-bottom: 10px;
-  clear:both;
+  clear: both;
+}
+
+.light {
+  background: #f3f3f3;
+  padding-bottom: 10px;
+  clear: both;
 }
 
 .dark-gray {
-  background-color: #4A4A4A;
+  background: #4a6084;
 }
 
 /* TODO: Replace with image later */
+
 #header {
-  background-color: #4a6084;
+  background: #4a6084;
 }
 
 .flex-box {
@@ -128,14 +143,11 @@ a {
 }
 
 .center-content {
-  padding-top: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 2.5%
+  padding: 2.5% 5%;
 }
 
 ul {
-  list-style-type: none;
+  list-style: none;
 }
 
 .biopic {
@@ -150,9 +162,10 @@ img {
 }
 
 /* Bar chart stuff */
+
 .chart div {
+  background: #4a4a4a;
   font: 10px sans-serif;
-  background-color: #4A4A4A;
   text-align: right;
   padding: 3px;
   margin: 1px;
@@ -163,7 +176,7 @@ img {
 
 span {
   padding: 10px;
-  color: #e1e1e1;
+  color: #f3f3f3;
 }
 
 #letsConnect {
@@ -186,9 +199,11 @@ span {
   #letsConnect {
     margin-top: 10%;
   }
+
   .biopic {
     width: 150px;
   }
+
   .welcome-message {
     display: none;
   }
