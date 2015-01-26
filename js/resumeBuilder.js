@@ -3,7 +3,7 @@ var bio = {
     "name": "Neil Allgood",
     "role": "Front-end Web Developer",
     "contacts": {
-        "mobile": "07767 374488",
+        "mobile": "+44-7767-374488",
         "email": "neil_allgood@hotmail.com",
         "twitter": "http://twitter.com/neilallgood",
         "github": "https://github.com/allbad",
@@ -13,7 +13,8 @@ var bio = {
     "skills": [
         "HTML",
         "CSS",
-        "JavaScript/jQuery"
+        "JavaScript/jQuery",
+        "Git/GitHub"
     ],
     "bioPic": "images/neil.jpg"
 };
@@ -52,12 +53,10 @@ bio.display = function(){
     //check for skills and add each one
     if (bio.skills.length > 0) {
         $('#header').append(HTMLskillsStart);
-        var formattedSkill = HTMLskills.replace('%data%', bio.skills[0]);
-        $('#skills').append(formattedSkill);
-        var formattedSkill = HTMLskills.replace('%data%', bio.skills[1]);
-        $('#skills').append(formattedSkill);
-        var formattedSkill = HTMLskills.replace('%data%', bio.skills[2]);
-        $('#skills').append(formattedSkill);
+        for (i=0; i<bio.skills.length; i++) {
+            var formattedSkill = HTMLskills.replace('%data%', bio.skills[i]);
+            $('#skills').append(formattedSkill);
+        }
     }
 };
 
@@ -104,6 +103,57 @@ work.display = function(){
 //call display function on work object
 work.display();
 
+//JSON for projects details
+var projects = {
+    "projects": [
+        {
+            "title": "http://elrecreo.co.uk",
+            "dates": 2014,
+            "description": "Created a website for a friend setting up a new Spanish tuition class for local children",
+            "images": [
+                "images/elrecreo1.png",
+                "images/elrecreo2.png"
+            ]
+        },
+        {
+            "title": "http://allgood.technology",
+            "dates": 2014,
+            "description": "Created a new website based on Skeleton grid as a site to experiment on",
+            "images": [
+                "images/at1.png"
+            ]
+        }
+    ]
+};
+
+//encapsulated function on the projects object to display details
+projects.display = function(){
+    for (var project in projects.projects){
+        // create new div for projects
+        $('#projects').append(HTMLprojectStart);
+        // replace placeholder data with json details
+        var formattedTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
+        var hrefTitle = $(formattedTitle);
+        hrefTitle.attr('href', projects.projects[project].title);
+        // add projects detail into html page
+        $(".project-entry:last").append(hrefTitle);
+        //$('.project-entry:last').append(formattedTitle);
+        var formattedDates = HTMLprojectDates.replace('%data%', projects.projects[project].dates);
+        $('.project-entry:last').append(formattedDates);
+        var formattedDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
+        $('.project-entry:last').append(formattedDescription);
+        //check for images and add each one
+        if (projects.projects[project].images.length >0) {
+            for (var image in projects.projects[project].images) {
+                var formattedImage = HTMLprojectImage.replace('%data%', projects.projects[project].images[image]);
+                $('.project-entry:last').append(formattedImage);
+            }
+        }
+    }
+};
+
+//call display function on projects object
+projects.display();
 
 //JSON for education details
 var education = {
@@ -121,6 +171,12 @@ var education = {
             "school": "Udacity",
             "dates": 2014,
             "url": "https://www.udacity.com/course/ud304-nd"
+        },
+        {
+            "title": "How to use Git and GitHub",
+            "school": "Udacity",
+            "dates": 2014,
+            "url": "https://www.udacity.com/course/ud775"
         },
         {
             "title": "JavaScript Basics",
@@ -151,12 +207,14 @@ education.display = function(){
         for (var onlineCourse in education.onlineCourses){
             var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
             var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
-            var TitleandSchool = formattedOnlineTitle + formattedOnlineSchool;
-            $(".education-entry:last").append(TitleandSchool);
-            var formattedDates = HTMLonlineDates.replace('%data%', education.onlineCourses[onlineCourse].dates);
-            $('.education-entry:last').append(formattedDates);
+            var titleAndSchool = formattedOnlineTitle + formattedOnlineSchool;
+            $(".education-entry:last").append(titleAndSchool);
+            var formattedOnlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[onlineCourse].dates);
+            $('.education-entry:last').append(formattedOnlineDates);
             var formattedURL = HTMLonlineURL.replace('%data%', education.onlineCourses[onlineCourse].url);
-            $('.education-entry:last').append(formattedURL);
+            var hrefURL = $(formattedURL);
+            hrefURL.attr('href', education.onlineCourses[onlineCourse].url);
+            $('.education-entry:last').append(hrefURL);
         }
     }
 };
@@ -164,54 +222,8 @@ education.display = function(){
 //call display function on education object
 education.display();
 
-//JSON for projects details
-var projects = {
-    "projects": [
-        {
-            "title": "El Recreo Website",
-            "dates": 2014,
-            "description": "Created a website for a friend setting up a new Spanish tuition class for local children",
-            "images": [
-                "images/elrecreo1.png",
-                "images/elrecreo2.png"
-            ]
-        },
-        {
-            "title": "allgood.technology Website",
-            "dates": 2014,
-            "description": "Created a new website based on Skeleton grid as a site to experiment on",
-            "images": [
-                "images/at1.png"
-            ]
-        }
-    ]
-};
-
-//encapsulated function on the projects object to display details
-projects.display = function(){
-    for (var project in projects.projects){
-        // create new div for projects
-        $('#projects').append(HTMLprojectStart);
-        // replace placeholder data with json details
-        var formattedTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
-        // add projects detail into html page
-        $('.project-entry:last').append(formattedTitle);
-        var formattedDates = HTMLprojectDates.replace('%data%', projects.projects[project].dates);
-        $('.project-entry:last').append(formattedDates);
-        var formattedDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
-        $('.project-entry:last').append(formattedDescription);
-        //check for images and add each one
-        if (projects.projects[project].images.length >0) {
-            for (var image in projects.projects[project].images) {
-                var formattedImage = HTMLprojectImage.replace('%data%', projects.projects[project].images[image]);
-                $('.project-entry:last').append(formattedImage);
-            }
-        }
-    }
-};
-
-//call display function on projects object
-projects.display();
+// see a map
+$('#mapDiv').append(googleMap);
 
 // function to internationalise surname (make it uppercase)
 function inName(name){
@@ -224,6 +236,3 @@ function inName(name){
 
 /* add button to run inName function
 $('#main').append(internationalizeButton); */
-
-// see a map
-$('#mapDiv').append(googleMap);

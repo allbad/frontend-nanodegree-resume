@@ -1,27 +1,16 @@
 /*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
-
-/*
-These are HTML strings. As part of the course, you'll be using JavaScript functions
-replace the %data% placeholder text you see in them.
+These are HTML strings. Use JavaScript functions to replace the %data% placeholder text
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr/>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="light-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="light-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="light-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="light-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text"></span><span class="light-text"><a href="%data%" target="_blank"><img class="icon" src="images/github-32.png">github</a></span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="light-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="light-text">%data%</span></li>';
+var HTMLcontactGeneric = '<li class="flex-item"><span class="bright-text">%contact%</span><span class="light-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item"><span class="bright-text"><a href="tel:%data%"><img class="icon" src="images/phone-32.png">mobile</a></span></li>';
+var HTMLemail = '<li class="flex-item"><span class="bright-text"><a href="mailto:%data%"><img class="icon" src="images/email-32.png">email</a></span></li>';
+var HTMLtwitter = '<li class="flex-item"><span class="bright-text"><a href="%data%" target="_blank"><img class="icon" src="images/twitter-32.png">twitter</a></span></li>';
+var HTMLgithub = '<li class="flex-item"><span class="bright-text"><a href="%data%" target="_blank"><img class="icon" src="images/github-32.png">github</a></span></li>';
+var HTMLblog = '<li class="flex-item"><span class="bright-text">blog</span><span class="light-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="bright-text">location</span><span class="light-text">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
@@ -60,7 +49,7 @@ var googleMap = '<div id="map"></div>';
 
 
 /*
-The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
+International Name helper to hook up code to the button
 */
 $(document).ready(function() {
   $('button').click(function() {
@@ -71,7 +60,7 @@ $(document).ready(function() {
 });
 
 /*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
+Collecting Click Locations
 */
 clickLocations = [];
 
@@ -92,15 +81,7 @@ $(document).click(function(loc) {
   logClicks(x,y);
 });
 
-
-
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
 var map;    // declares a global map variable
-
 
 /*
 Start here! initializeMap() is called when page is loaded.
@@ -158,14 +139,12 @@ function initializeMap() {
     var name = placeData.formatted_address;   // name of the place from the place service
     var bounds = window.mapBounds;            // current boundaries of the map window
 
-    var contentString = '<div id="content">'+
-      '<h1 id="firstHeading" class="firstHeading">'+ name +'</h1>'+
-      '<div id="bodyContent">'+
+    var contentString = '<div class="mapcontent">'+
+      '<h1>'+ name +'</h1>'+
       '<ul>' +
       '<li>Lattitude: ' + lat +
       '<li>Longitude: ' + lon +
       '</ul>' +
-      '</div>'+
       '</div>';
 
     // marker is an object with additional data about the pin for a single location
@@ -241,10 +220,6 @@ function initializeMap() {
   pinPoster(locations);
 
 }
-
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
 
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
