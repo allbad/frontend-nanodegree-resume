@@ -234,5 +234,6 @@ function inName(name){
     return name[0] + ' ' + name[1];
 }
 
+
 /* add button to run inName function
 $('#main').append(internationalizeButton); */
